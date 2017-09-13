@@ -31,7 +31,7 @@ and all inferences share the same model parameters.
 
 def main_test_layers(model='relu'):
     X_train, y_train, X_val, y_val, X_test, y_test = \
-                                    tl.files.load_mnist_dataset(shape=(-1,784))
+                tl.files.load_mnist_dataset(path="/tmp/TensorFlow/Tensorlayer/data/mnist/", shape=(-1, 784))
 
     X_train = np.asarray(X_train, dtype=np.float32)
     y_train = np.asarray(y_train, dtype=np.int32)
@@ -180,7 +180,7 @@ def main_test_layers(model='relu'):
 
 
     # You can also save the parameters into .npz file.
-    tl.files.save_npz(network.all_params , name='model.npz')
+    tl.files.save_npz(network.all_params , name='/tmp/TensorFlow/Tensorlayer/model/mnist.npz')
     # You can only save one parameter as follow.
     # tl.files.save_npz([network.all_params[0]] , name='model.npz')
     # Then, restore the parameters as follow.
