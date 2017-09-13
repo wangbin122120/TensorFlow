@@ -30,8 +30,9 @@ and all inferences share the same model parameters.
 """
 
 def main_test_layers(model='relu'):
+    import numpy as np
     X_train, y_train, X_val, y_val, X_test, y_test = \
-                tl.files.load_mnist_dataset(path="/tmp/TensorFlow/Tensorlayer/data/mnist/", shape=(-1, 784))
+        tl.files.load_mnist_dataset(path="/tmp/TensorFlow/Tensorlayer/input/mnist/", shape=(-1, 784))
 
     X_train = np.asarray(X_train, dtype=np.float32)
     y_train = np.asarray(y_train, dtype=np.int32)
@@ -153,7 +154,7 @@ def main_test_layers(model='relu'):
                 # You can visualize the weight of 1st hidden layer as follow.
                 tl.visualize.W(network.all_params[0].eval(), second=10,
                                         saveable=True, shape=[28, 28],
-                                        name='w1_'+str(epoch+1), fig_idx=2012)
+                                        name='/tmp/TensorFlow/Tensorlayer/output/mnist/w1_'+str(epoch+1), fig_idx=2012)
                 # You can also save the weight of 1st hidden layer to .npz file.
                 # tl.files.save_npz([network.all_params[0]] , name='w1'+str(epoch+1)+'.npz')
             except:
